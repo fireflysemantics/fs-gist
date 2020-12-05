@@ -47,14 +47,15 @@ let FSGistElement = class FSGistElement extends LitElement {
     }
     render() {
         return html `
-      <iframe id="gist" type="text/javascript" width="100%" frameborder="0" style = "height:inherit"></iframe>      
+      <iframe id="gist" type="text/javascript" frameborder="0" style="width: 100%; height:100%;"></iframe>
     `;
     }
 };
 FSGistElement.styles = css `
     :host {
       display: block;
-      max-width: 1000px;
+      width: 100%;
+      height: 100%;
     }
   `;
 __decorate([

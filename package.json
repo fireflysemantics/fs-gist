@@ -1,6 +1,6 @@
 {
   "name": "@fireflysemantics/fs-gist",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A web component for including gists in html content",
   "main": "fs-gist.bundle.js",
   "module": "fs-gist.js",
@@ -8,9 +8,9 @@
   "type": "module",
   "scripts": {
     "rollup": "rollup -c",
-    "build": "tsc",
+    "build": "npm run clean && tsc && npm run rollup",
     "build:watch": "tsc --watch",
-    "clean": "rimraf fs-gist.{d.ts,d.ts.map,js,js.map} test/fs-gist.{d.ts,d.ts.map,js,js.map} test/fs-gist_test.{d.ts,d.ts.map,js,js.map}",
+    "clean": "rimraf fs-gist.{d.ts,d.ts.map,js,js.map,bundle.js,bundle.js.map} test/fs-gist.{d.ts,d.ts.map,js,js.map} test/fs-gist_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
