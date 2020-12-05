@@ -1,14 +1,16 @@
 {
-  "name": "lit-element-starter-ts",
-  "version": "0.0.0",
-  "description": "A simple web component",
-  "main": "my-element.js",
-  "module": "my-element.js",
+  "name": "@fireflysemantics/fs-gist",
+  "version": "1.0.1",
+  "description": "A web component for including gists in html content",
+  "main": "fs-gist.bundle.js",
+  "module": "fs-gist.js",
+  "types": "fs-gist.d.ts",
   "type": "module",
   "scripts": {
+    "rollup": "rollup -c",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
+    "clean": "rimraf fs-gist.{d.ts,d.ts.map,js,js.map} test/fs-gist.{d.ts,d.ts.map,js,js.map} test/fs-gist_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
@@ -17,7 +19,7 @@
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/my-element.bundled.js",
+    "docs:build": "rollup -c --file docs/fs-gist.bundled.js",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
     "docs:serve": "es-dev-server --root-dir=docs --node-resolve --watch",
     "analyze": "wca analyze \"src/**/*.ts\" --outFile custom-elements.json",
@@ -26,15 +28,15 @@
     "test:watch": "karma start karma.conf.cjs --auto-watch=true --single-run=false",
     "test:update-snapshots": "karma start karma.conf.cjs --update-snapshots",
     "test:prune-snapshots": "karma start karma.conf.cjs --prune-snapshots",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+    "checksize": "rollup -c ; cat fs-gist.bundled.js | gzip -9 | wc -c ; rm fs-gist.bundled.js"
   },
   "keywords": [
     "web-components",
     "lit-element",
     "typescript"
   ],
-  "author": "The Polymer Authors",
-  "license": "BSD-3-Clause",
+  "author": "Ole Ersoy",
+  "license": "MIT",
   "dependencies": {
     "lit-element": "^2.3.1"
   },
@@ -43,7 +45,9 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@open-wc/testing": "^2.5.10",
     "@open-wc/testing-karma": "^3.3.11",
-    "@rollup/plugin-replace": "^2.3.1",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-replace": "^2.3.4",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
@@ -57,13 +61,13 @@
     "karma-mocha": "^1.3.0",
     "lit-analyzer": "^1.1.10",
     "mocha": "^7.1.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
-    "rollup": "^1.32.1",
-    "rollup-plugin-filesize": "^7.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.3.0",
-    "typescript": "^3.8.3",
+    "rollup": "^2.34.1",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-filesize": "^9.1.0",
+    "typescript": "^3.9.7",
     "web-component-analyzer": "^1.0.3"
   }
 }
