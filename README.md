@@ -8,6 +8,12 @@ Web component for embedding gists in html content
 
 ## Usage
 
+Include `fs-gist` via CDN like this in your html page:
+
+```
+<script src="https://unpkg.com/@fireflysemantics/fs-gist"></script>
+```
+
 To show this gist url:
 
 `https://gist.github.com/fireflysemantics/054716730103cd205c39167054542f68` 
