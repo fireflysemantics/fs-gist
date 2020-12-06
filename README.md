@@ -16,9 +16,26 @@ To show this gist url:
 configure the component `gistID` like this:
 
 ```
-<fs-gist gistID="fireflysemantics/054716730103cd205c39167054542f68">
-</fs-gist>
+<body style="height: 100vh;">
+  <fs-gist gistID="fireflysemantics/054716730103cd205c39167054542f68">
+  </fs-gist>
+</body>
 ```
+
+Note that we set the `height` of the body to `100vh` in order to allow
+`fs-gist` to expand.
+
+A height property is also supported.  For example:
+
+```
+<body style="height: 100vh;">
+  <fs-gist height="10rem" gistID="fireflysemantics/054716730103cd205c39167054542f68">
+  </fs-gist>
+</body>
+
+```
+
+[Stackblitz Demo](https://stackblitz.com/edit/typescript-fs-gist-set-body-height-demo?file=index.html)
 
 ## Development
 

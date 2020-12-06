@@ -14,6 +14,7 @@ export declare class FSGistElement extends LitElement {
      * The name to say "Hello" to.
      */
     gistID: string;
+    height: string;
     /**
      * Select a file within a multi file gist.
      * https://stackoverflow.com/questions/14206307/how-do-i-embed-a-single-file-from-a-github-gist-with-the-new-gist-interface

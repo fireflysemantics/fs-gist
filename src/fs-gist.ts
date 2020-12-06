@@ -6,6 +6,7 @@
  */
 import { LitElement, html, customElement, property, css, query } from 'lit-element';
 
+
 /**
  * An element for including github gists in html documents.
  */
@@ -13,18 +14,17 @@ import { LitElement, html, customElement, property, css, query } from 'lit-eleme
 export class FSGistElement extends LitElement {
 
   static styles = css`
-    :host {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+    :host {}
   `;
 
-  /**
+  /** 
    * The name to say "Hello" to.
    */
   @property()
   gistID = '';
+
+  @property()
+  height:string = ''
 
   /**
    * Select a file within a multi file gist.
@@ -63,11 +63,17 @@ export class FSGistElement extends LitElement {
 
   render() {
     return html`
-      <iframe id="gist" type="text/javascript" frameborder="0" style="width: 100%; height:100%;"></iframe>
+    <style>
+      :host {
+        display: flex;
+        width: 100%;
+        height: ${this.height ? this.height : '100%'} !important  
+      }
+    </style>    
+      <iframe id="gist" type="text/javascript" frameborder="0" style="display:flex; width: 100%; height:${this.height ? this.height : '100%'};"></iframe>
     `;
   }
 }
-
 declare global {
   interface HTMLElementTagNameMap {
     'fs-gist': FSGistElement;

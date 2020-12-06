@@ -21,6 +21,7 @@ let FSGistElement = class FSGistElement extends LitElement {
          * The name to say "Hello" to.
          */
         this.gistID = '';
+        this.height = '';
         /**
          * Select a file within a multi file gist.
          * https://stackoverflow.com/questions/14206307/how-do-i-embed-a-single-file-from-a-github-gist-with-the-new-gist-interface
@@ -47,20 +48,26 @@ let FSGistElement = class FSGistElement extends LitElement {
     }
     render() {
         return html `
-      <iframe id="gist" type="text/javascript" frameborder="0" style="width: 100%; height:100%;"></iframe>
+    <style>
+      :host {
+        display: flex;
+        width: 100%;
+        height: ${this.height ? this.height : '100%'} !important  
+      }
+    </style>    
+      <iframe id="gist" type="text/javascript" frameborder="0" style="display:flex; width: 100%; height:${this.height ? this.height : '100%'};"></iframe>
     `;
     }
 };
 FSGistElement.styles = css `
-    :host {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+    :host {}
   `;
 __decorate([
     property()
 ], FSGistElement.prototype, "gistID", void 0);
+__decorate([
+    property()
+], FSGistElement.prototype, "height", void 0);
 __decorate([
     property()
 ], FSGistElement.prototype, "file", void 0);
