@@ -11,7 +11,17 @@ import { LitElement } from 'lit-element';
 export declare class FSGistElement extends LitElement {
     static styles: import("lit-element").CSSResult;
     /**
-     * The name to say "Hello" to.
+     * The gist URL.  Use either
+     * the gistURL or the gistID
+     * to identify the gist.
+     */
+    gistURL: string;
+    /**
+     * The gist id.  If the URL is:
+     * https://gist.github.com/fireflysemantics/44d1a1e52f2a43e881e8175a1be7bea1
+     *
+     * Then the gist id will be:
+     * fireflysemantics/44d1a1e52f2a43e881e8175a1be7bea1
      */
     gistID: string;
     height: string;

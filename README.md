@@ -18,7 +18,16 @@ To show this gist url:
 
 `https://gist.github.com/fireflysemantics/054716730103cd205c39167054542f68` 
 
+configure the component `gistURL` like this:
 
+```
+<body style="height: 100vh;">
+  <fs-gist gistID="https://gist.github.com/fireflysemantics/054716730103cd205c39167054542f68">
+  </fs-gist>
+</body>
+```
+
+or 
 configure the component `gistID` like this:
 
 ```

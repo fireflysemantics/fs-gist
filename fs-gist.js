@@ -18,7 +18,17 @@ let FSGistElement = class FSGistElement extends LitElement {
     constructor() {
         super();
         /**
-         * The name to say "Hello" to.
+         * The gist URL.  Use either
+         * the gistURL or the gistID
+         * to identify the gist.
+         */
+        this.gistURL = '';
+        /**
+         * The gist id.  If the URL is:
+         * https://gist.github.com/fireflysemantics/44d1a1e52f2a43e881e8175a1be7bea1
+         *
+         * Then the gist id will be:
+         * fireflysemantics/44d1a1e52f2a43e881e8175a1be7bea1
          */
         this.gistID = '';
         this.height = '';
@@ -30,7 +40,15 @@ let FSGistElement = class FSGistElement extends LitElement {
     }
     firstUpdated() {
         let fileName = (this.file) ? this.file : '';
-        this.iframe.id = 'gist-' + this.gistID;
+        let scriptURL = '';
+        if (this.gistURL) {
+            this.iframe.id = 'gist-' + this.gistURL;
+            scriptURL = `${this.gistURL}.js`;
+        }
+        else {
+            this.iframe.id = 'gist-' + this.gistID;
+            scriptURL = `https://gist.github.com/${this.gistID}.js`;
+        }
         let doc = (this.iframe.contentDocument || this.iframe.contentWindow);
         let content = `
         <html>
@@ -38,7 +56,7 @@ let FSGistElement = class FSGistElement extends LitElement {
           <base target="_parent">
         </head>
         <body onload="parent.document.getElementById('${this.iframe.id}')">
-        <script type="text/javascript" src="https://gist.github.com/${this.gistID}.js?file=${fileName}"></script>
+        <script type="text/javascript" src="${scriptURL}?file=${fileName}"></script>
         </body>
       </html>
     `;
@@ -62,6 +80,9 @@ let FSGistElement = class FSGistElement extends LitElement {
 FSGistElement.styles = css `
     :host {}
   `;
+__decorate([
+    property()
+], FSGistElement.prototype, "gistURL", void 0);
 __decorate([
     property()
 ], FSGistElement.prototype, "gistID", void 0);
