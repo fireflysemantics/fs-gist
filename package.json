@@ -6,6 +6,13 @@
   "module": "fs-gist.js",
   "types": "fs-gist.d.ts",
   "type": "module",
+  "bugs": {
+    "url": "https://github.com/fireflysemantics/fs-gist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fireflysemantics/fs-gist.git"
+  },
   "scripts": {
     "ig": "npm install -g @jsdevtools/version-bump-prompt && npm install -g npm-check-updates && npm install -g npm-install-peers",
     "p": "bump patch && npm run build && npm publish",
